@@ -11,165 +11,339 @@
 <body>
 
 	<div class="container">
-		<h2>Create New Project</h2>
+		<div class="d-flex align-items-center justify-content-center">
+			<div style="text-align: center">
+				<h2>
+					<b style="color:blue">Create New Project</b>
+				</h2>
+			</div>
+		</div>
+
 		<form th:action="@{/save}" th:object="${project}" method="post">
-			<ul th:if="${#fields.hasErrors('*')}">
-				<li th:each="error : ${#fields.errors('*')}" th:text="${error}">error</li>
-			</ul>
 
 			<div class="row">
-				<label class="col-md-3 text-right" for="projectid">Project
-					ID:</label>
-				<div class="col-md-6 pull-left">
-					<div class="form-group">
-						<input type="number" name="projectid" id="projectid"
-							class="form-control form-control-sm" th:field="*{id}" />
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<label class="col-md-3 text-right" for="projecttitle">Title:</label>
-				<div class="col-md-6 pull-left">
-					<div class="form-group">
-						<input type="text" name="projecttitle" id="projecttitle"
-							class="form-control form-control-sm" th:field="*{title}" />
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<label class="col-md-3 text-right" for="fieldselect">Type:</label>
-				<div class="col-md-3 pull-left">
-					<div class="form-group">
-						<select class="form-control form-control-sm" name="fieldselect"
-							id="fieldselect" th:field="*{type}">
-							<option value=""> - Select - </option>
-							<option value="HealthCare">Health Care</option>
-							<option value="Insurance">Insurance</option>
-							<option value="Banking">Banking</option>
-							<option value="Shipping">Shipping</option>
-							<option value="PublicSector">Public Sector</option>
-							<option value="Government">Government</option>
-						</select>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="row">
-				<label class="col-md-3 text-right" for="fieldprice">Estimated
-					Price:</label>
-				<div class="col-md-3 pull-left">
-					<div class="form-group">
-						<input type="number" name="fieldprice" id="fieldprice" step="any"
-							class="form-control form-control-sm" th:field="*{price}" />
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<label class="col-md-3 text-right" for="fieldselect2">Team
-					Members:</label>
-				<div class="col-md-3 pull-left">
-					<div class="form-group">
-						<select class="form-control form-control-sm" name="fieldselect2"
-							id="fieldselect2" th:field="*{teammembers}" multiple>
-							<option value="MemberName1">MemberName1</option>
-							<option value="MemberName2">MemberName2</option>
-							<option value="MemberName3">MemberName3</option>
-							<option value="MemberName4">MemberName4</option>
-							<option value="MemberName5">MemberName5</option>
-						</select>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="row">
-				<label class="col-md-3 text-right"
-					for="datetime-local">Launch Date:</label>
-				<div class="col-md-3 pull-left">
-					<div class="form-group">
-						<input type="datetime-local" name="datetimelocal"
-							id="datetimelocal" class="form-control form-control-sm"
-							th:field="*{launchDate}" />
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<label class="col-md-3 text-right" for="datetime-local">Duration:</label>
 				<div class="col-md-6">
-					<div class="form-group">
-						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" th:field="*{days}"
-								name="option1" id="option1" value="15"> <label
-								class="form-check-label" for="option1">150 Days</label>
+					<div class="jumbotron jumbo text-center alert-primary">
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right" for="projectid">Project
+								ID:</label>
+							<div class="col-md-9 pull-left">
+								<div class="form-group">
+									<input type="number" name="projectid" id="projectid"
+										class="form-control form-control-sm" th:field="*{id}" />
+								</div>
+							</div>
 						</div>
-						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" th:field="*{days}"
-								name="option2" id="option2" value="30"> <label
-								class="form-check-label" for="option2">250 Days</label>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="projecttitle">Title:</label>
+							<div class="col-md-9 pull-left">
+								<div class="form-group">
+									<input type="text" name="projecttitle" id="projecttitle"
+										class="form-control form-control-sm" th:field="*{title}" />
+								</div>
+							</div>
 						</div>
-						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" th:field="*{days}"
-								name="option3" id="option3" value="45"> <label
-								class="form-check-label" for="option3">365 Days</label>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="fieldselect">Type:</label>
+							<div class="col-md-4 pull-left">
+								<div class="form-group">
+									<select class="form-control form-control-sm control-label" name="fieldselect"
+										id="fieldselect" th:field="*{type}">
+										<option value="">- Select Type -</option>
+										<option value="HealthCare">Health Care</option>
+										<option value="Insurance">Insurance</option>
+										<option value="Banking">Banking</option>
+										<option value="Shipping">Shipping</option>
+										<option value="PublicSector">Public Sector</option>
+										<option value="Government">Government</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right" for="fieldprice">Estimated
+								Price:</label>
+							<div class="col-md-9 pull-left">
+								<div class="form-group">
+									<input type="number" name="fieldprice" id="fieldprice"
+										step="any" class="form-control form-control-sm"
+										th:field="*{price}" />
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="fieldselect2">Team Members:</label>
+							<div class="col-md-4 pull-left">
+								<div class="form-group">
+									<select class="form-control form-control-sm control-label"
+										name="fieldselect2" id="fieldselect2"
+										th:field="*{teammembers}" multiple>
+										<option value="MemberName1">MemberName1</option>
+										<option value="MemberName2">MemberName2</option>
+										<option value="MemberName3">MemberName3</option>
+										<option value="MemberName4">MemberName4</option>
+										<option value="MemberName5">MemberName5</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="datetime-local">Launch Date:</label>
+							<div class="col-md-9 pull-left">
+								<div class="form-group">
+									<input type="datetime-local" name="datetimelocal"
+										id="datetimelocal" class="form-control form-control-sm"
+										th:field="*{launchDate}" />
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="datetime-local">Duration (Days):</label>
+							<div class="col-md-5">
+								<div class="form-group">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio"
+											th:field="*{days}" name="option1" id="option1" value="150">
+										<label class="control-label form-check-label" for="option1">150</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio"
+											th:field="*{days}" name="option2" id="option2" value="250">
+										<label class="control-label form-check-label" for="option2">250</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio"
+											th:field="*{days}" name="option3" id="option3" value="365">
+										<label class="control-label form-check-label" for="option3">365</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right" for="featured">Featured?</label>
+							<div class="col-md-1 pull-left">
+								<div class="form-group">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											th:field="*{featured}" name="featured" id="featured">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="highpriority">High Priority?</label>
+							<div class="col-md-1 pull-left">
+								<div class="form-group">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											name="highpriority" id="highpriority" disabled>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="fielddescription">Description:</label>
+							<div class="col-md-9 pull-left">
+								<div class="form-group">
+									<textarea class="form-control form-control-sm"
+										name="fielddescription" id="fielddescription"
+										th:field="*{description}" rows="1"></textarea>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				
+				<div class="col-md-6">
+					<div class="jumbotron jumbo text-center alert-primary">
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="projectmanager">Project Manager:</label>
+							<div class="col-md-9 pull-left">
+								<div class="form-group">
+									<input type="text" name="projectmanager"
+										class="form-control form-control-sm" th:field="*{projectmanager}" />
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="departments">Product Owner:</label>
+							<div class="col-md-9 pull-left">
+								<div class="form-group">
+									<input type="text"
+										class="productownerclass form-control form-control-sm"
+										th:field="*{productowner}" />
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="departments">Departments:</label>
+							<div class="col-md-4 pull-left">
+								<div class="form-group">
+									<select class="form-control form-control-sm control-label" name="departments"
+										id="departments" th:field="*{departments}">
+										<option value="InformationTechnology">Information
+											Technology</option>
+										<option value="Finance">Finance</option>
+										<option value="Recruitment">Recruitment</option>
+										<option value="Presales">Pre-sales</option>
+										<option value="Administration">Administration</option>
+										<option value="Legal">Legal</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right" for="practice">Practice:</label>
+							<div class="col-md-9 pull-left">
+								<div class="form-group">
+									<input type="text" name="practice" id="practice" step="any"
+										class="practiceclass form-control form-control-sm" th:field="*{practice}" />
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="fieldselect2">Regions:</label>
+							<div class="col-md-4 pull-left">
+								<div class="form-group">
+									<select class="form-control form-control-sm control-label"
+										name="regions" id="regions"
+										th:field="*{regions}" multiple>
+										<option value="Region1">Region1</option>
+										<option value="Region2">Region2</option>
+										<option value="Region3">Region3</option>
+										<option value="Region4">Region4</option>
+										<option value="Region5">Region5</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="approvaldate">Approval Date:</label>
+							<div class="col-md-9 pull-left">
+								<div class="form-group">
+									<input type="datetime-local" name="approvaldate"
+										id="approvaldate" class="form-control form-control-sm"
+										th:field="*{approvaldate}" />
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="datetime-local">Ranking:</label>
+							<div class="col-md-5">
+								<div class="form-group">
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio"
+											th:field="*{ranking}" name="rankinghigh" id="rankinghigh" value="1">
+										<label class="control-label form-check-label" for="rankinghigh">1</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio"
+											th:field="*{ranking}" name="rankingmedium" id="rankingmedium" value="2">
+										<label class="control-label form-check-label" for="rankingmedium">2</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" type="radio"
+											th:field="*{ranking}" name="rankinglow" id="rankinglow" value="3">
+										<label class="control-label form-check-label" for="rankinglow">3</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right" for="featured">Risks
+								Identified?</label>
+							<div class="col-md-5 pull-left">
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" th:field="*{risksidentified}"
+										name="risksidentified" id="risksidentifiedoption1" value="yes"> <label
+										class="control-label form-check-label" for="risksidentifiedoption1">Yes</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" th:field="*{risksidentified}"
+										name="risksidentified" id="risksidentified2" value="no"> <label
+										class="control-label form-check-label" for="risksidentified2">No</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="resolutionplan">Resolution Plan?</label>
+							<div class="col-md-1 pull-left">
+								<div class="form-group">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+											name="resolutionplan" id="resolutionplan" disabled>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<label class="control-label col-md-3 text-right"
+								for="summary">Summary:</label>
+							<div class="col-md-9 pull-left">
+								<div class="form-group">
+									<textarea class="form-control form-control-sm"
+										name="summary" id="summary"
+										th:field="*{summary}" rows="1"></textarea>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 			<div class="row">
-				<label class="col-md-3 text-right" for="featured">Featured?</label>
-				<div class="col-md-3 pull-left">
-					<div class="form-group">
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox"
-								th:field="*{featured}" name="featured" id="featured">
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<label class="col-md-3 text-right" for="highpriority">High
-					Priority?</label>
-				<div class="col-md-3 pull-left">
-					<div class="form-group">
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox"
-								name="highpriority" id="highpriority" disabled>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<label class="col-md-3 text-right"
-					for="fielddescription">Description:</label>
-				<div class="col-md-6 pull-left">
-					<div class="form-group">
-						<textarea class="form-control form-control-sm"
-							name="fielddescription" id="fielddescription"
-							th:field="*{description}" rows="1"></textarea>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="row">
-				<label class="col-md-3 text-right" for="savebutton"></label>
-				<div class="col-md-3 pull-left">
+				<label class="control-label col-md-3 text-right" for="savebutton"></label>
+				<div class="col-md-12">
 					<div class="form-group">
 						<button type="submit" name="savebutton" id="savebutton"
-							class="btn btn-primary btn-block mt-3">Save Project</button>
+							class="btn btn-large btn-block btn-primary btn-space">Save
+							Project</button>
 					</div>
 				</div>
 			</div>
-
 		</form>
+
 	</div>
 
 </body>

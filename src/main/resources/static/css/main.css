@@ -34,7 +34,12 @@
 }
 
 .control-label {
-	padding-top: 6px;
+	padding-top: 4px;
+	font-size: 12px;
+}
+
+.btn-block {
+	font-size: 18px;
 }
 
 .pull-left {
@@ -63,6 +68,19 @@ legend {
 	font-size: 14px;
 	font-weight: bold;
 	color: blue;
+}
+
+.jumbo {
+	padding: 20px;
+}
+
+.jumbotron {
+	border-style: solid;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	background-color: transparent !important;
 }
 
 .alert {

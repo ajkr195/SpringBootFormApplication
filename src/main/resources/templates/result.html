@@ -11,10 +11,19 @@
 <body>
 
 	<div class="container my-3">
+
+		<div class="d-flex align-items-center justify-content-center">
+			<div style="text-align: center">
+				<h2>
+					<b style="color: green">Project Created Successfully</b>
+				</h2>
+			</div>
+		</div>
+
+
 		<div class="row">
-			<div class="col-md-8 mx-auto">
-				<h2>Project successfully created</h2>
-				<div class="my-3">
+			<div class="col-md-6">
+				<div class="jumbotron jumbo alert-success">
 					<p>
 						<strong>ID:</strong> <span th:text="${project.id}"></span>
 					</p>
@@ -24,9 +33,7 @@
 					<p>
 						<strong>Type:</strong> <span th:text="${project.type}"></span>
 					</p>
-					<p>
-						<strong>Days:</strong> <span th:text="${project.days}"></span>
-					</p>
+
 					<p>
 						<strong>Price:</strong> <span th:text="${project.price}"></span>
 					</p>
@@ -38,20 +45,77 @@
 						<strong>Launch Date:</strong> <span
 							th:text="${project.launchDate}"></span>
 					</p>
-					
+
+					<p>
+						<strong>Days:</strong> <span th:text="${project.days}"></span>
+					</p>
+
 					<p>
 						<strong>Featured:</strong> <span
 							th:text="${project.featured} ? 'Yes' : 'No'"></span>
 					</p>
-					
+
+					<p>
+						<strong>Highpriority:</strong> <span
+							th:text="${project.highpriority} ? 'Yes' : 'No'"></span>
+					</p>
+
 					<p>
 						<strong>Description:</strong> <span
 							th:text="${project.description}"></span>
 					</p>
 				</div>
-				<a th:href="@{/}">Add new project</a>
 			</div>
+
+			<div class="col-md-6">
+				<div class="jumbotron jumbo alert-success">
+					<p>
+						<strong>Project Manager:</strong> <span
+							th:text="${project.projectmanager}"></span>
+					</p>
+					<p>
+						<strong>Product Owner:</strong> <span
+							th:text="${project.productowner}"></span>
+					</p>
+					<p>
+						<strong>Department:</strong> <span
+							th:text="${project.departments}"></span>
+					</p>
+					<p>
+						<strong>Practice:</strong> <span th:text="${project.practice}"></span>
+					</p>
+					<p>
+						<strong>Regions:</strong> <span th:text="${project.regions}"></span>
+					</p>
+					<p>
+						<strong>Approval Date</strong> <span
+							th:text="${project.approvaldate}"></span>
+					</p>
+
+					<p>
+						<strong>Ranking:</strong> <span th:text="${project.ranking}"></span>
+					</p>
+
+					<p>
+						<strong>Risks Identified:</strong> <span
+							th:text="${project.risksidentified} ? 'Yes' : 'No'"></span>
+					</p>
+
+					<p>
+						<strong>Resolution Plan:</strong> <span
+							th:text="${project.resolutionplan} ? 'Yes' : 'No'"></span>
+					</p>
+
+					<p>
+						<strong>Summary:</strong> <span th:text="${project.summary}"></span>
+					</p>
+				</div>
+			</div>
+
 		</div>
+		<br /> <a th:href="@{/}"
+			class="btn btn-large btn-block btn-success btn-space">Add new
+			project</a>
 	</div>
 
 </body>
