@@ -7,6 +7,7 @@
 <link rel="stylesheet"
 	href="webjars/bootstrap/4.4.1/css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/main.css" />
+
 </head>
 <body>
 
@@ -14,7 +15,7 @@
 		<div class="d-flex align-items-center justify-content-center">
 			<div style="text-align: center">
 				<h2>
-					<b style="color:blue">Create New Project</b>
+					<b style="color: blue">Create New Project</b>
 				</h2>
 			</div>
 		</div>
@@ -32,6 +33,8 @@
 								<div class="form-group">
 									<input type="number" name="projectid" id="projectid"
 										class="form-control form-control-sm" th:field="*{id}" />
+									<p class="error" th:if="${#fields.hasErrors('id')}"
+										th:errors="*{id}" />
 								</div>
 							</div>
 						</div>
@@ -43,6 +46,8 @@
 								<div class="form-group">
 									<input type="text" name="projecttitle" id="projecttitle"
 										class="form-control form-control-sm" th:field="*{title}" />
+									<p class="error" th:if="${#fields.hasErrors('title')}"
+										th:errors="*{title}" />
 								</div>
 							</div>
 						</div>
@@ -50,11 +55,12 @@
 						<div class="row">
 							<label class="control-label col-md-3 text-right"
 								for="fieldselect">Type:</label>
-							<div class="col-md-4 pull-left">
+							<div class="col-md-5 pull-left">
 								<div class="form-group">
-									<select class="form-control form-control-sm control-label" name="fieldselect"
-										id="fieldselect" th:field="*{type}">
-										<option value="">- Select Type -</option>
+									<select class="form-control form-control-sm control-label"
+										name="fieldselect" id="fieldselect" th:field="*{type}">
+										<option value="" selected="true" readonly>==Select
+											Type==</option>
 										<option value="HealthCare">Health Care</option>
 										<option value="Insurance">Insurance</option>
 										<option value="Banking">Banking</option>
@@ -62,9 +68,13 @@
 										<option value="PublicSector">Public Sector</option>
 										<option value="Government">Government</option>
 									</select>
+									<p class="error" th:if="${#fields.hasErrors('type')}"
+										th:errors="*{type}" />
 								</div>
 							</div>
 						</div>
+
+
 
 
 						<div class="row">
@@ -82,17 +92,21 @@
 						<div class="row">
 							<label class="control-label col-md-3 text-right"
 								for="fieldselect2">Team Members:</label>
-							<div class="col-md-4 pull-left">
+							<div class="col-md-6 pull-left">
 								<div class="form-group">
 									<select class="form-control form-control-sm control-label"
 										name="fieldselect2" id="fieldselect2"
 										th:field="*{teammembers}" multiple>
-										<option value="MemberName1">MemberName1</option>
-										<option value="MemberName2">MemberName2</option>
-										<option value="MemberName3">MemberName3</option>
-										<option value="MemberName4">MemberName4</option>
-										<option value="MemberName5">MemberName5</option>
+										<option value="" th:disabled="disabled" selected="true"
+											readonly>==Member(s)==</option>
+										<option value="Name1">MemberName1</option>
+										<option value="Name2">MemberName2</option>
+										<option value="Name3">MemberName3</option>
+										<option value="Name4">MemberName4</option>
+										<option value="Name5">MemberName5</option>
 									</select>
+									<p class="error" th:if="${#fields.hasErrors('teammembers')}"
+										th:errors="*{teammembers}" />
 								</div>
 							</div>
 						</div>
@@ -113,7 +127,7 @@
 							<label class="control-label col-md-3 text-right"
 								for="datetime-local">Duration (Days):</label>
 							<div class="col-md-5">
-								<div class="form-group">
+								<div class="form-group  text-left">
 									<div class="form-check form-check-inline">
 										<input class="form-check-input" type="radio"
 											th:field="*{days}" name="option1" id="option1" value="150">
@@ -130,6 +144,8 @@
 										<label class="control-label form-check-label" for="option3">365</label>
 									</div>
 								</div>
+								<p class="error" th:if="${#fields.hasErrors('days')}"
+									th:errors="*{days}" />
 							</div>
 						</div>
 
@@ -172,12 +188,12 @@
 
 					</div>
 				</div>
-				
-				
-				
-				
-				
-				
+
+
+
+
+
+
 				<div class="col-md-6">
 					<div class="jumbotron jumbo text-center alert-primary">
 
@@ -187,7 +203,8 @@
 							<div class="col-md-9 pull-left">
 								<div class="form-group">
 									<input type="text" name="projectmanager"
-										class="form-control form-control-sm" th:field="*{projectmanager}" />
+										class="form-control form-control-sm"
+										th:field="*{projectmanager}" />
 								</div>
 							</div>
 						</div>
@@ -207,10 +224,11 @@
 						<div class="row">
 							<label class="control-label col-md-3 text-right"
 								for="departments">Departments:</label>
-							<div class="col-md-4 pull-left">
+							<div class="col-md-6 pull-left">
 								<div class="form-group">
-									<select class="form-control form-control-sm control-label" name="departments"
-										id="departments" th:field="*{departments}">
+									<select class="form-control form-control-sm control-label"
+										name="departments" id="departments" th:field="*{departments}">
+										<option value="" selected="true" readonly>==Department==</option>
 										<option value="InformationTechnology">Information
 											Technology</option>
 										<option value="Finance">Finance</option>
@@ -219,6 +237,8 @@
 										<option value="Administration">Administration</option>
 										<option value="Legal">Legal</option>
 									</select>
+									<p class="error" th:if="${#fields.hasErrors('departments')}"
+										th:errors="*{departments}" />
 								</div>
 							</div>
 						</div>
@@ -229,7 +249,8 @@
 							<div class="col-md-9 pull-left">
 								<div class="form-group">
 									<input type="text" name="practice" id="practice" step="any"
-										class="practiceclass form-control form-control-sm" th:field="*{practice}" />
+										class="practiceclass form-control form-control-sm"
+										th:field="*{practice}" />
 								</div>
 							</div>
 						</div>
@@ -237,17 +258,20 @@
 						<div class="row">
 							<label class="control-label col-md-3 text-right"
 								for="fieldselect2">Regions:</label>
-							<div class="col-md-4 pull-left">
+							<div class="col-md-6 pull-left">
 								<div class="form-group">
 									<select class="form-control form-control-sm control-label"
-										name="regions" id="regions"
-										th:field="*{regions}" multiple>
+										name="regions" id="regions" th:field="*{regions}" multiple>
+										<option value="" th:disabled="disabled" selected="true"
+											readonly>==Region(s)==</option>
 										<option value="Region1">Region1</option>
 										<option value="Region2">Region2</option>
 										<option value="Region3">Region3</option>
 										<option value="Region4">Region4</option>
 										<option value="Region5">Region5</option>
 									</select>
+									<p class="error" th:if="${#fields.hasErrors('regions')}"
+										th:errors="*{regions}" />
 								</div>
 							</div>
 						</div>
@@ -268,21 +292,24 @@
 							<label class="control-label col-md-3 text-right"
 								for="datetime-local">Ranking:</label>
 							<div class="col-md-5">
-								<div class="form-group">
+								<div class="form-group  text-left">
 									<div class="form-check form-check-inline">
 										<input class="form-check-input" type="radio"
-											th:field="*{ranking}" name="rankinghigh" id="rankinghigh" value="1">
-										<label class="control-label form-check-label" for="rankinghigh">1</label>
+											th:field="*{ranking}" name="rankinghigh" id="rankinghigh"
+											value="1"> <label
+											class="control-label form-check-label" for="rankinghigh">1</label>
 									</div>
 									<div class="form-check form-check-inline">
 										<input class="form-check-input" type="radio"
-											th:field="*{ranking}" name="rankingmedium" id="rankingmedium" value="2">
-										<label class="control-label form-check-label" for="rankingmedium">2</label>
+											th:field="*{ranking}" name="rankingmedium" id="rankingmedium"
+											value="2"> <label
+											class="control-label form-check-label" for="rankingmedium">2</label>
 									</div>
 									<div class="form-check form-check-inline">
 										<input class="form-check-input" type="radio"
-											th:field="*{ranking}" name="rankinglow" id="rankinglow" value="3">
-										<label class="control-label form-check-label" for="rankinglow">3</label>
+											th:field="*{ranking}" name="rankinglow" id="rankinglow"
+											value="3"> <label
+											class="control-label form-check-label" for="rankinglow">3</label>
 									</div>
 								</div>
 							</div>
@@ -291,17 +318,22 @@
 						<div class="row">
 							<label class="control-label col-md-3 text-right" for="featured">Risks
 								Identified?</label>
-							<div class="col-md-5 pull-left">
+							<div class="col-md-7 text-left">
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" th:field="*{risksidentified}"
-										name="risksidentified" id="risksidentifiedoption1" value="yes"> <label
-										class="control-label form-check-label" for="risksidentifiedoption1">Yes</label>
+									<input class="form-check-input" type="radio"
+										th:field="*{risksidentified}" name="risksidentified"
+										id="risksidentifiedoption1" value="yes"> <label
+										class="control-label form-check-label"
+										for="risksidentifiedoption1">Yes</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" th:field="*{risksidentified}"
-										name="risksidentified" id="risksidentified2" value="no"> <label
+									<input class="form-check-input" type="radio"
+										th:field="*{risksidentified}" name="risksidentified"
+										id="risksidentified2" value="no"> <label
 										class="control-label form-check-label" for="risksidentified2">No</label>
 								</div>
+								<p class="error" th:if="${#fields.hasErrors('risksidentified')}"
+										th:errors="*{risksidentified}" />
 							</div>
 						</div>
 
@@ -312,20 +344,18 @@
 								<div class="form-group">
 									<div class="form-check">
 										<input class="form-check-input" type="checkbox"
-											name="resolutionplan" id="resolutionplan" disabled>
+											name="resolutionplan" id="resolutionplan" disabled="true">
 									</div>
 								</div>
 							</div>
 						</div>
 
 						<div class="row">
-							<label class="control-label col-md-3 text-right"
-								for="summary">Summary:</label>
+							<label class="control-label col-md-3 text-right" for="summary">Summary:</label>
 							<div class="col-md-9 pull-left">
 								<div class="form-group">
-									<textarea class="form-control form-control-sm"
-										name="summary" id="summary"
-										th:field="*{summary}" rows="1"></textarea>
+									<textarea class="form-control form-control-sm" name="summary"
+										id="summary" th:field="*{summary}" rows="1"></textarea>
 								</div>
 							</div>
 						</div>
@@ -347,4 +377,11 @@
 	</div>
 
 </body>
+<script type="text/javascript" src="webjars/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$('#risksidentifiedoption1').click(function() {
+		$( "#resolutionplan" ).prop( "disabled", null );
+	    $( "#resolutionplan" ).prop( "checked", true );
+	});
+</script>
 </html>

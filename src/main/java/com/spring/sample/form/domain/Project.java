@@ -1,21 +1,30 @@
 package com.spring.sample.form.domain;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Project implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+	@NotNull (message = "{not.empty}") 
 	private Long id;
+	@NotEmpty (message = "{not.empty}")
+	@Size(min = 5, max = 50, message = "{title.minmax.Size}")
 	private String title;
+	@NotEmpty (message = "{select.empty.type}")
 	private String type;
 	private Double price;
+	@NotEmpty (message = "{multi.select.empty.member}")
 	private String teammembers;
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 	private LocalDateTime launchDate;
+	@NotNull (message = "{select.empty.days}")
 	private Integer days;
 	private Boolean featured;
 	private Boolean highpriority;
@@ -23,12 +32,15 @@ public class Project implements Serializable {
 
 	private String projectmanager;
 	private String productowner;
+	@NotEmpty (message = "{select.empty.department}")
 	private String departments;
 	private String practice;
+	@NotEmpty (message = "{multi.select.empty.region}")
 	private String regions;
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 	private LocalDateTime approvaldate;
 	private Integer ranking;
+	@NotNull (message = "{select.empty.risksidentified}")
 	private Boolean risksidentified;
 	private Boolean resolutionplan;
 	private String summary;
